@@ -1,0 +1,14 @@
+#!/bin/bash
+if [ ! -f /etc/solr.conf ]; then
+    die "Missing config file /etc/solr.conf"
+fi
+. /etc/solr.conf
+
+if [ ! -d $SOLR_HOME ]; then
+    die "Can't find $SOLR_HOME"
+fi
+cd $SOLR_HOME
+COMMAND="java -jar start.jar"
+nohup $COMMAND > /dev/null 2>&1 &
+echo `ps -ef | grep -v grep | grep "$COMMAND" | awk '{print $2}'` > $PIDFILE
+exit $?

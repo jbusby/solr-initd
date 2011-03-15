@@ -1,0 +1,41 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          solr
+# Required-Start:   
+# Required-Stop:
+# Default-Start:     3 5
+# Default-Stop:      0 1 2 6
+# Short-Description: init script for solr search
+# Description:       init script for solr search
+#                    This should be placed in /etc/init.d
+### END INIT INFO
+if [ ! -e /etc/redhat-release ]; then
+    die "This is built for RHEL/Fedora/CentOS, you may need to alter it to fit your distribution"
+fi
+
+if [ ! -f /etc/solr.conf ]; then
+    die "Missing config file /etc/solr.conf"
+fi
+
+. /etc/rc.d/init.d/functions
+. /etc/solr.conf
+
+case $1 in
+    start)
+        action "Starting ${NAME}: " daemon --pidfile $PIDFILE $SOLR
+        ;;
+    stop)
+        action "Stopping ${NAME}: " killproc -p $PIDFILE
+        ;;
+    restart)
+        $0 stop
+        $0 start
+        ;;
+    status)
+        status -p $PIDFILE solr
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart|status}" 
+        exit 3
+        ;;
+esac
