@@ -1,4 +1,20 @@
 #!/bin/sh
+#!/bin/bash
+#-----------------------------------------------------
+# solr-initd v0.5.1
+#-----------------------------------------------------
+# Script for running solr as a service under initd.
+#
+# Requires solr.conf and solr.start
+# Usage: service solr {start|stop|restart|status}"
+#
+# NOTE: This script was build specifically for Fedora,
+# but also works on RHEL and CentOS. Other distributions
+# are untest and probably require you to alter the scripts
+#-----------------------------------------------------
+# Author: Jeff Busby <jeff@jeffbusby.ca>
+# License: http://creativecommons.org/licenses/by/3.0/
+#-----------------------------------------------------
 ### BEGIN INIT INFO
 # Provides:          solr
 # Required-Start:   
