@@ -37,7 +37,7 @@ fi
 
 case $1 in
     start)
-        action "Starting ${NAME}: " daemon --pidfile $PIDFILE $SOLR
+        action "Starting ${NAME}: " daemon --pidfile $PIDFILE $SOLR_START
         ;;
     stop)
         action "Stopping ${NAME}: " killproc -p $PIDFILE
