@@ -10,9 +10,9 @@ Checkout a copy:
 
     $ git clone git@github.com:jbusby/solr-initd.git
 
-Copy solr.initd to /etc/initd/solr
+Copy solr.initd to /etc/init.d/solr
 
-    $ cp solr.initd /etc/initd/solr
+    $ cp solr.initd /etc/init.d/solr
 
 Copy solr.start to /path/to/solr/install/solr.start
 
