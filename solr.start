@@ -23,6 +23,6 @@ if [ ! -d $SOLR_HOME ]; then
 fi
 cd $SOLR_HOME
 COMMAND="java $OPTIONS -jar start.jar"
-nohup $COMMAND > /dev/null 2>&1 &
+nohup $COMMAND > $LOG_FILE 2>&1 &
 echo $! > $PIDFILE
 exit $?
