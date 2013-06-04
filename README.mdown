@@ -8,7 +8,7 @@ Setting Up solr-initd
 ---------------------
 Checkout a copy:
 
-    $ git clone git@github.com:jbusby/solr-initd.git
+    $ git clone https://github.com/jbusby/solr-initd.git
 
 Copy solr.initd to /etc/init.d/solr
 
