@@ -25,11 +25,13 @@
 #                    This should be placed in /etc/init.d
 ### END INIT INFO
 if [ ! -e /etc/redhat-release ]; then
-    die "This is built for RHEL/Fedora/CentOS, you may need to alter it to fit your distribution"
+    echo "This is built for RHEL/Fedora/CentOS, you may need to alter it to fit your distribution"
+    exit 1
 fi
 
 if [ ! -f /etc/solr.conf ]; then
-    die "Missing config file /etc/solr.conf"
+    echo "Missing config file /etc/solr.conf"
+    exit 1
 fi
 
 . /etc/rc.d/init.d/functions
