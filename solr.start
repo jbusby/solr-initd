@@ -14,12 +14,14 @@
 # License: http://creativecommons.org/licenses/by/3.0/
 #-----------------------------------------------------
 if [ ! -f /etc/solr.conf ]; then
-    die "Missing config file /etc/solr.conf"
+    echo "Missing config file /etc/solr.conf"
+    exit 1
 fi
 . /etc/solr.conf
 
 if [ ! -d $SOLR_HOME ]; then
-    die "Can't find $SOLR_HOME"
+    echo "Can't find $SOLR_HOME"
+    exit 1
 fi
 cd $SOLR_HOME
 COMMAND="java $OPTIONS -jar start.jar"
